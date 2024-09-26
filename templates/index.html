@@ -2,7 +2,7 @@
 
 {% block head %} 
 <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
-<title>MyCart</title>
+<title>Wishlist</title>
 <script src="static/css/app.js"></script>
 {% endblock %}
 
@@ -10,10 +10,6 @@
 {% block body %}
 
 <div class="main">
-    
-
-
-
  <div class="container"> 
 
     <form class="inptfrm" action="/", method="POST">
@@ -60,16 +56,14 @@
 
     
     
-      
 
 
-<span class="category" id="clothing">
+
+<span class="category">
     
     Clothings
 
 </span><hr>
-
-
       <!-- <hr>
       <h4>Clothings</h4>
       <hr>
@@ -78,8 +72,8 @@
 <div class="wrapper">
 {% for item in items %}
 
-{% if "jacket".casefold() in item.name.casefold() or "T-Shirt" in item.name or "Shirt" in item.name or "Sweatshirt"  in item.name or "Boxer"  in item.name or "Jogger"  in item.name or "Jeans"  in item.name or "Jackets"  in item.name or "Tops"  in item.name or "Dress"  in item.name or "Kurta"  in item.name
-or "Stoles" in item.name or "hoodie" in item.name or  "crop" in item.name or "shirt" in item.name or "Crop" in item.name
+{% if "T-Shirt" in item.name or "Shirt" in item.name or "Sweatshirt"  in item.name or "Boxer"  in item.name or "Jogger"  in item.name or "Jeans"  in item.name or "Jackets"  in item.name or "Tops"  in item.name or "Dress"  in item.name or "Kurta"  in item.name
+or "Stoles" in item.name or "Tshirt" in item.name or  "crop" in item.name or "shirt" in item.name or "Crop" in item.name
  or "Top" in item.name or "Set" in item.name or "Shorts" in item.name or "Tee" in item.name or "neck" in item.name or "Tops" in item.name %}
 
 
@@ -109,7 +103,7 @@ or "Stoles" in item.name or "hoodie" in item.name or  "crop" in item.name or "sh
     <div class="wrapper">
     {% for item in items %}
     
-    {%if "Bag" in item.name or "Slider" in item.name or "slides" in item.name or "Flip Flop" in item.name or "Backpack"  in item.name or "Notebook"  in item.name or "Socks"  in item.name or "boots" in item.name
+    {%if "Bag" in item.name or "Slider" in item.name or "Flip Flop" in item.name or "Backpack"  in item.name or "Notebook"  in item.name or "Socks"  in item.name or "boots" in item.name
     or "flat" in item.name or "flats" in item.name or "Flat" in item.name or "MUG" in item.name or "BackPack" in  item.name or "Heels" in item.name or "heel" in item.name  %}
        
     <div class="card">
@@ -201,22 +195,15 @@ search1.addEventListener("input", function(){
      let inputVal=search1.value
       let cardT=document.getElementsByClassName("card")
       Array.from(cardT).forEach(function(element) {
-          let txt=element.getElementsByTagName('h6')[0].innerText.toLowerCase()
+          let txt=element.getElementsByTagName('h6')[0].innerText
          if (txt.includes(inputVal)) {
              element.style.display="flex"
          } else {
              element.style.display="None"
-
          }
     })
  })
 </script>
-<!-- <script>
-    function myFunction() {
-       var element = document.body;
-       element.classList.toggle("dark-mode");
-    }
-    </script> -->
 {% endblock %}
 
 
