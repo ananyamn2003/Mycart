@@ -154,14 +154,19 @@ def index():
             print('data: ' + item_name)
 
             if 'streetstylestore' in item_name:
+               
                 flag = 1
                 try:
+                    print("inside try")
+                    print(requests.get(item_name))
                     req = requests.get(item_name)
+                    print(req)
                     soup = BeautifulSoup(req.content, 'html.parser')
                     price = soup.find('div', class_="font-semibold").string
                     name = soup.find('h2', class_="product-name").string
                     image = soup.find_all('img')
-                    image_link = image[2]['src']
+                    image_link = image[0]['src']
+                    print(image_link,"image")
 
                  
                     user_collection.insert_one({
